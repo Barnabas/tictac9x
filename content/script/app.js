@@ -28,7 +28,9 @@
 
 	mod.run(["$location", "$rootScope", modRun]);
 
-	mod.value("firebaseUrl", "https://tictac9x.firebaseio.com/");
+	// This was mine, don't use it please: mod.value("firebaseUrl", "https://tictac9x.firebaseio.com/");
+	// CHANGE THE NEXT LINE 
+	mod.value("firebaseUrl", "https://<YOUR FIREBASE DB HERE>.firebaseio.com/");
 
 	mod.filter("spacify", function(){
 		return function(input){
