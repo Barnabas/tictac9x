@@ -1,0 +1,18 @@
+<div class="grid" ng-class="{enabled: isEnabled}">
+	<div class="winner" ng-class="{isX: gridWinner == 'X', isO: gridWinner == 'O'}" ng-bind="gridWinner"></div>
+	<div class="row grid-top">
+		<div class="small-4 columns grid-left" grid-cell="top_left" cell-state="gridState.top_left"></div>
+		<div class="small-4 columns grid-center" grid-cell="top_center" cell-state="gridState.top_center"></div>
+		<div class="small-4 columns grid-right" grid-cell="top_right" cell-state="gridState.top_right"></div>
+	</div>
+	<div class="row grid-middle">
+		<div class="small-4 columns grid-left" grid-cell="middle_left" cell-state="gridState.middle_left"></div>
+		<div class="small-4 columns grid-center" grid-cell="middle_center" cell-state="gridState.middle_center"></div>
+		<div class="small-4 columns grid-right" grid-cell="middle_right" cell-state="gridState.middle_right"></div>
+	</div>
+	<div class="row grid-bottom">
+		<div class="small-4 columns grid-left" grid-cell="bottom_left" cell-state="gridState.bottom_left"></div>
+		<div class="small-4 columns grid-center" grid-cell="bottom_center" cell-state="gridState.bottom_center"></div>
+		<div class="small-4 columns grid-right" grid-cell="bottom_right" cell-state="gridState.bottom_right"></div>
+	</div>
+</div>

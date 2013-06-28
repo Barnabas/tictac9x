@@ -1,0 +1,14 @@
+{
+	"name"         : "tictac-9x",
+	"version"      : "0.0.1",
+	"dependencies" : {
+		"angular"           : "1.0.7",
+		"angular-fire"      : "*",
+		"angular-ui-router" : ">= 0.0.1"
+	},
+	"ignore"       : [
+		"**/.*",
+		"node_modules",
+		"components"
+	]
+}

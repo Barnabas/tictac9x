@@ -1,0 +1,13 @@
+/* TEAM */
+	Barnabas Kendall
+	Contact:	barnabas [dot] kendall [at] gmail.com
+	Twitter:	@BarnabasK
+	From: 		Issaquah, Washington, USA
+
+
+/* SITE */
+	Standards: 	HTML5, Common Sense
+	Components: AngularJS, AngularFire, Angular UI Router
+	CSS base:	Zurb Foundation
+	IDE: 		JetBrains WebStorm 6.0.2
+	Services:	Firebase, KISSr + Dropbox
