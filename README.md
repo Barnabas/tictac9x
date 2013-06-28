@@ -3,6 +3,8 @@ TicTac 9X
 
 Browser-based Ultimate Tic Tac Toe with AngularJS and Firebase 
 
+[Play the demo here](http://tictac9x.kissr.com/)
+
 ## Requirements
 * Static web server (I'm using Dropbox + KISSr)
 * [Firebase](https://www.firebase.com/) DB
