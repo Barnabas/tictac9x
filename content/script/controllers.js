@@ -20,7 +20,7 @@ function HomeCtrl($scope, $state, firebaseUrl, storedIdSvc) {
 HomeCtrl.$inject = ["$scope", "$state", "firebaseUrl", "storedIdSvc"];
 
 
-function GameCtrl($scope, $stateParams, firebaseUrl, storedIdSvc, angularFire) {
+function GameCtrl($scope, $stateParams, $timeout, firebaseUrl, storedIdSvc, angularFire) {
 
 	var playerId = storedIdSvc.getId("player");
 	$scope.game = {currentPlayer : "nobody"};
@@ -29,20 +29,24 @@ function GameCtrl($scope, $stateParams, firebaseUrl, storedIdSvc, angularFire) {
 
 	// prepare the game and join
 	angularFire(firebaseUrl + "games/" + $stateParams.gameId, $scope, "game", {}).then(function () {
-		console.log("started up game object", $scope.game);
+		// decide if I'm X or O, maybe I'm nobody
 		if (!$scope.game.mainGrid) $scope.game.mainGrid = {};
 		if (!$scope.game.subGrids) $scope.game.subGrids = {};
 
-		// decide if I'm X or O, maybe I'm nobody
 		if ($scope.game.X == playerId) {
 			$scope.player = "X";    // I'm X
 		} else if ($scope.game.O == playerId) {
 			$scope.player = "O";    // I'm O
 		} else if ($scope.game.O == false) {
+
 			$scope.player = "O";    // I'll be O and we can get started
-			$scope.game.O = playerId;
-			$scope.game.message = "O has joined the game";      // bug: why does this message not go to the other player? :/
-			$scope.game.currentPlayer = "O";
+
+			// update game with timeout, otherwise it doesn't get sent
+			$timeout(function(){
+				$scope.game.O = playerId;
+				$scope.game.message = "O has joined the game";
+				$scope.game.currentPlayer = "O";
+			}, 200);
 		}
 	});
 
@@ -56,6 +60,7 @@ function GameCtrl($scope, $stateParams, firebaseUrl, storedIdSvc, angularFire) {
 		if ($scope.game.winner || $scope.player != $scope.game.currentPlayer) return;  // not my turn
 		if (data.gridId != $scope.game.activeGrid && $scope.game.activeGrid !== false) return; // not a valid grid
 
+		if($scope.game.subGrids == undefined) $scope.game.subGrids = {};
 		var grid = $scope.game.subGrids[data.gridId];
 		if (grid == undefined)  grid = $scope.game.subGrids[data.gridId] = {};  // create grid if no move yet
 
@@ -122,4 +127,4 @@ function GameCtrl($scope, $stateParams, firebaseUrl, storedIdSvc, angularFire) {
 	}
 
 }
-GameCtrl.$inject = ["$scope", "$stateParams", "firebaseUrl", "storedIdSvc", "angularFire"];
+GameCtrl.$inject = ["$scope", "$stateParams", "$timeout", "firebaseUrl", "storedIdSvc", "angularFire"];

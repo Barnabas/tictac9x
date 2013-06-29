@@ -4,23 +4,24 @@
 		<span ng-show="game.currentPlayer">
 			It's <strong>{{ game.currentPlayer}}'s</strong> turn to move in {{ (game.activeGrid || "any")|spacify }} grid.
 		</span>
-		<div ng-hide="isConnected">Connection problems, please wait</div>
 	</div>
 	<div class="small-6 columns text-right">{{ game.message|spacify }}</div>
 </div>
-<div class="row">
-	<div class="small-4 columns" game-grid="top_left" grid-state="game.subGrids.top_left"></div>
-	<div class="small-4 columns" game-grid="top_center" grid-state="game.subGrids.top_center"></div>
-	<div class="small-4 columns" game-grid="top_right" grid-state="game.subGrids.top_right"></div>
+<div id="main-grid">
+	<div class="row">
+		<div class="small-4 columns" game-grid="top_left" grid-state="game.subGrids.top_left"></div>
+		<div class="small-4 columns" game-grid="top_center" grid-state="game.subGrids.top_center"></div>
+		<div class="small-4 columns" game-grid="top_right" grid-state="game.subGrids.top_right"></div>
+	</div>
+	<div class="row">
+		<div class="small-4 columns" game-grid="middle_left" grid-state="game.subGrids.middle_left"></div>
+		<div class="small-4 columns" game-grid="middle_center" grid-state="game.subGrids.middle_center"></div>
+		<div class="small-4 columns" game-grid="middle_right" grid-state="game.subGrids.middle_right"></div>
+	</div>
+	<div class="row">
+		<div class="small-4 columns" game-grid="bottom_left" grid-state="game.subGrids.bottom_left"></div>
+		<div class="small-4 columns" game-grid="bottom_center" grid-state="game.subGrids.bottom_center"></div>
+		<div class="small-4 columns" game-grid="bottom_right" grid-state="game.subGrids.bottom_right"></div>
+	</div>
 </div>
-<div class="row">
-	<div class="small-4 columns" game-grid="middle_left" grid-state="game.subGrids.middle_left"></div>
-	<div class="small-4 columns" game-grid="middle_center" grid-state="game.subGrids.middle_center"></div>
-	<div class="small-4 columns" game-grid="middle_right" grid-state="game.subGrids.middle_right"></div>
-</div>
-<div class="row">
-	<div class="small-4 columns" game-grid="bottom_left" grid-state="game.subGrids.bottom_left"></div>
-	<div class="small-4 columns" game-grid="bottom_center" grid-state="game.subGrids.bottom_center"></div>
-	<div class="small-4 columns" game-grid="bottom_right" grid-state="game.subGrids.bottom_right"></div>
-</div>
-
+<div id="connection-error" ng-hide="isConnected">Connection problems, please wait...</div>

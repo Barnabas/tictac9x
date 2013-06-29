@@ -3,13 +3,21 @@ body {
 	font-family : 'Roboto', sans-serif;
 }
 
+#main-grid {
+	margin : .5em 0;
+}
+
 .grid {
 	padding  : .5em 1.5em;
 	opacity  : .75;
 	position : relative;
+	border   : 5px solid white;
 }
 
-.grid.enabled { opacity : 1; background : lightblue; }
+.grid.enabled {
+	opacity    : 1;
+	background : lightblue;
+}
 
 .grid .winner {
 	position    : absolute;
@@ -21,6 +29,20 @@ body {
 	color       : #666;
 	opacity     : .5;
 	font-weight : bold;
+}
+
+#connection-error {
+	position    : fixed;
+	z-index     : 1;
+	left        : 50%;
+	border      : 1px solid;
+	width       : 50%;
+	margin-left : -25%;
+	text-align  : center;
+	font-size   : 2em;
+	line-height : 2;
+	background  : rgba(255, 0, 0, .5);
+	top         : 40%;
 }
 
 .isX { color : #006400; }
