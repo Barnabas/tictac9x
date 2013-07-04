@@ -3,6 +3,13 @@
 
 	var templateRoot = "content/templates/";
 
+	mod.directive("rules", function () {
+		return {
+			restrict    : "A",
+			templateUrl : templateRoot + "rules.html"
+		};
+	});
+
 	mod.directive("gameGrid", function () {
 		return {
 			restrict    : "A",

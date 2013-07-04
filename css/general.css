@@ -31,18 +31,33 @@ body {
 	font-weight : bold;
 }
 
-#connection-error {
+.game-message {
 	position    : fixed;
 	z-index     : 1;
 	left        : 50%;
 	border      : 1px solid;
 	width       : 50%;
 	margin-left : -25%;
-	text-align  : center;
-	font-size   : 2em;
+	top         : 25%;
 	line-height : 2;
-	background  : rgba(255, 0, 0, .5);
-	top         : 40%;
+	padding     : 10px;
+}
+
+#connection-error {
+	text-align : center;
+	font-size  : 150%;
+	background : rgba(255, 0, 0, .5);
+}
+
+#invite {
+	background : lightblue;
+}
+
+#invite input {
+	border     : 0;
+	font-size  : 125%;
+	text-align : center;
+	background : transparent;
 }
 
 .isX { color : #006400; }

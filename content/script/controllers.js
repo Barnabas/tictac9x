@@ -53,6 +53,9 @@ function GameCtrl($scope, $stateParams, $timeout, firebaseUrl, storedIdSvc, angu
 	// connectivity variable
 	angularFire(firebaseUrl + ".info/connected", $scope, "isConnected", true);
 
+	// make game URL visible
+	$scope.gameUrl = window.location + "";
+
 	// game logic is all here
 	$scope.$on("submitMove", function (evt, data) {
 		// determine if it's a valid move

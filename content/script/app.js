@@ -4,17 +4,28 @@
 	function modConfig($provide, $stateProvider, $urlRouterProvider) {
 		var pageRoot = "content/pages/";
 
-		$stateProvider.state("home", {
-			url         : "/",
-			templateUrl : pageRoot + "home.html",
-			controller  : HomeCtrl
-		});
-		$stateProvider.state("game", {
-			url         : "/game{gameId}",
-			templateUrl : pageRoot + "game.html",
-			controller  : GameCtrl
-		});
 
+		if(window.config) {
+			$provide.value("firebaseUrl", window.config.firebaseUrl);     // set in config.js
+
+			$stateProvider.state("home", {
+				url         : "/",
+				templateUrl : pageRoot + "home.html",
+				controller  : HomeCtrl
+			});
+			$stateProvider.state("game", {
+				url         : "/game{gameId}",
+				templateUrl : pageRoot + "game.html",
+				controller  : GameCtrl
+			});
+
+
+		} else {
+			$stateProvider.state("home", {
+				url         : "/",
+				templateUrl : pageRoot + "setup.html"
+			});
+		}
 		$urlRouterProvider.otherwise("/");
 	}
 
@@ -27,10 +38,6 @@
 	mod.config(["$provide", "$stateProvider", "$urlRouterProvider", modConfig]);
 
 	mod.run(["$location", "$rootScope", modRun]);
-
-	// This was mine, don't use it please: mod.value("firebaseUrl", "https://tictac9x.firebaseio.com/");
-	// CHANGE THE NEXT LINE 
-	mod.value("firebaseUrl", "https://<YOUR FIREBASE DB HERE>.firebaseio.com/");
 
 	mod.filter("spacify", function(){
 		return function(input){

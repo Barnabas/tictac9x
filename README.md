@@ -1,7 +1,7 @@
 TicTac 9X
 ========
 
-Browser-based Ultimate Tic Tac Toe with AngularJS and Firebase 
+Browser-based Ultimate Tic Tac Toe with AngularJS and Firebase
 
 [Play the demo here](http://tictac9x.kissr.com/)
 
@@ -14,7 +14,7 @@ Browser-based Ultimate Tic Tac Toe with AngularJS and Firebase
 
 * Unzip to a directory that can serve static HTML files
 * Run `bower install` from command line to populate components
-* Modify content/script/app.js to point to your own Firebase
+* Modify config.sample.js and rename it to config.js
 
 ## How Can I Help?
 * Bug fixes, style or performance improvements

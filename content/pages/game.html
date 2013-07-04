@@ -7,7 +7,7 @@
 	</div>
 	<div class="small-6 columns text-right">{{ game.message|spacify }}</div>
 </div>
-<div id="main-grid">
+<div id="main-grid" ng-show="game.O">
 	<div class="row">
 		<div class="small-4 columns" game-grid="top_left" grid-state="game.subGrids.top_left"></div>
 		<div class="small-4 columns" game-grid="top_center" grid-state="game.subGrids.top_center"></div>
@@ -24,4 +24,12 @@
 		<div class="small-4 columns" game-grid="bottom_right" grid-state="game.subGrids.bottom_right"></div>
 	</div>
 </div>
-<div id="connection-error" ng-hide="isConnected">Connection problems, please wait...</div>
+<div class="game-message" id="connection-error" ng-hide="isConnected">Connecting, please wait...</div>
+<div class="game-message" id="invite" ng-hide="game.O">
+	<p>Send this link to a friend and wait for them to join:</p>
+	<p><input type="text" value="{{ gameUrl }}" readonly onclick="this.select();"/></p>
+	<p>
+		<a href="mailto:?subject=TicTac9X&body={{ gameUrl }}">EMail</a>
+	</p>
+</div>
+<div rules="">(rules here)</div>
