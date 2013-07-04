@@ -48,13 +48,14 @@ function GameCtrl($scope, $stateParams, $timeout, firebaseUrl, storedIdSvc, angu
 				$scope.game.currentPlayer = "O";
 			}, 200);
 		}
+
+		// make game URL visible
+		$scope.gameUrl = window.location + "";
 	});
 
 	// connectivity variable
 	angularFire(firebaseUrl + ".info/connected", $scope, "isConnected", true);
 
-	// make game URL visible
-	$scope.gameUrl = window.location + "";
 
 	// game logic is all here
 	$scope.$on("submitMove", function (evt, data) {
